@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+    scrape-master:
+      build:
+        context: .
+        dockerfile: ./docker/Dockerfile
+      command: /bin/sh -c "./scripts/start.sh"
+      env_file:
+        - .env
+      volumes:
+        - ./:/app
+      ports:
+        - "8000:8000"
+      depends_on:
+        - mysql-service
+         
+    mysql-service:
+      image: mysql
+      ports: 
+        - "3306:3306"
+      volumes:
+        - /data/fast-api/db:/data/db
+      environment:
+        MYSQL_ROOT_PASSWORD: 123
+        MYSQL_DATABASE: test

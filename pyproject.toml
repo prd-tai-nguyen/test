@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "python-fastapi-template"
+version = "0.1.0"
+description = ""
+authors = ["prd-tan-truong <tan.truong@paradox.ai>"]
+
+[tool.poetry.dependencies]
+python = "^3.10.4"
+uvicorn = {extras = ["standard"], version = "^0.18.2"}
+fastapi = "^0.80.0"
+sentry-sdk = {extras = ["fastapi"], version = "^1.9.5"}
+alembic = "^1.8.1"
+mysqlclient = "^2.1.1"
+SQLAlchemy = "^1.4.40"
+requests = "^2.28.1"
+
+[tool.poetry.dev-dependencies]
+paradox-pydevdeps = {git = "https://github.com/ParadoxAi/paradox-pydevdeps.git", rev = "f64716c5b8e37233e3cf69645513572fb2a65f7d"}
+autopep8 = "^1.7.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.nitpick]
+cache = "never"
+style = "https://raw.githubusercontent.com/ParadoxAi/paradox-pydevdeps/master/styleguide/nitpick-style.toml"
